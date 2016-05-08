@@ -15,3 +15,9 @@ puts "#{paragraph_count} paragraphs"
 puts "#{sentence_count} sentences"
 puts "#{sentence_count/paragraph_count} sentences per paragraph (average)"
 puts "#{word_count/sentence_count} words per sentence (average)"
+
+stopwords = %{the a by on far of are with just but and to the my I has some in}
+
+words = text.scan(/\w+/)
+keywords = words.select {|word| !stopwords.include?(word)}
+((keywords.length.to_f/words.length.to_f)*100).to_i
